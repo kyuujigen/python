@@ -1,0 +1,28 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        strs = []
+
+        for i in range(len(s)):
+            if s[i] == "(" or s[i] == "[" or s[i] == "{":
+                strs.append(s[i])
+
+            elif s[i] == ")":
+                if len(strs) == 0 or strs[-1] != "(":
+                    return False
+                strs.pop()
+
+            elif s[i] == "]":
+                if len(strs) == 0 or strs[-1] != "[":
+                    return False
+                strs.pop()
+
+            elif s[i] == "}":
+                if len(strs) == 0 or strs[-1] != "{":
+                    return False
+                strs.pop()
+
+        if len(strs) == 0:
+            return True
+        else:
+            return False
+笨但是方便的写法
